@@ -35,7 +35,6 @@ def login(request):
         'login_form': login_form,
         'next': next
     }
-
     return render(request, 'authapp/login.html', content)
 
 
@@ -75,7 +74,6 @@ def edit(request):
         edit_form = ShopUserEditForm(instance=request.user)
 
     content = {'title': title, 'edit_form': edit_form}
-
     return render(request, 'authapp/edit.html', content)
 
 
