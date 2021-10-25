@@ -13,11 +13,12 @@ urlpatterns = [
 
     re_path(r'^auth/', include('authapp.urls', namespace='auth')),
     re_path(r'^basket/', include('basketapp.urls', namespace='basket')),
-    re_path('admin/', include('adminapp.urls', namespace='admin')),
+    re_path(r'^admin/', include('adminapp.urls', namespace='admin')),
     re_path(r'^order/', include('ordersapp.urls', namespace='order')),
 ]
 
 if settings.DEBUG:
-    #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     import debug_toolbar
+
     urlpatterns += [re_path(r'^__debug__/', include(debug_toolbar.urls))]
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
