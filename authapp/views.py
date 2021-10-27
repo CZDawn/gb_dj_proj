@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.conf import settings
 from django.db import transaction
+from django.contrib.auth.decorators import login_required
 
 from authapp.models import ShopUser, ShopUserProfile
 
@@ -62,6 +63,7 @@ def register(request):
             return render(request, 'authapp/register.html', content)
 
 @transaction.atomic
+@login_required
 def edit(request):
     title = 'редактирование'
 
