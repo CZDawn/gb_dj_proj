@@ -14,7 +14,7 @@ class ShopUser(AbstractUser):
     age = models.PositiveIntegerField(
         verbose_name='возраст',
         default=18)
-    actication_key = models.CharField(
+    activation_key = models.CharField(
         verbose_name='ключ подтверждения',
         max_length=128,
         blank=True)
